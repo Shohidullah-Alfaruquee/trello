@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import BoardContextProvider from './context/BoardContext';
+import ListContextProvider from './context/ListContext';
+import TaskContextProvider from './context/TaskContext';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BoardContextProvider>
+      <ListContextProvider>
+        <TaskContextProvider>
+          <App />
+        </TaskContextProvider>
+      </ListContextProvider>
+    </BoardContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
